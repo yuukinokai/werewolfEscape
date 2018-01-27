@@ -9,3 +9,7 @@ app.get('/', function(req, res, next) {
 app.get('/2', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+app.get('/game', function(req, res, next) {
+  res.render('game');
+})
