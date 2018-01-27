@@ -109,9 +109,9 @@ input[type=radio]{
     margin-top: 3.2px;
 }
 
-.playerinfo{
+/* .playerinfo{
 	border: 1px solid #bbb;
-}
+} */
 
 @media (max-width: 992px){
 	body{
