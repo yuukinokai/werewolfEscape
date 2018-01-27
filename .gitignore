@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+#osx shits
+.DS_Store
+
+# local db
+db.sqlite
