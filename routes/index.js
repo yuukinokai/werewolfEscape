@@ -12,4 +12,8 @@ app.get('/2', function(req, res, next) {
 
 app.get('/game', function(req, res, next) {
   res.render('game');
-})
+});
+
+app.get('/map', function(req, res, next) {
+  res.render('map');
+});
