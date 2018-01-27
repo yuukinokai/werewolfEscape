@@ -1,12 +1,39 @@
+html{
+	width: 100%;
+	height: 100%;
+}
 body {
 	background-color: white;
 	color: #555;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
 }
 .container{
 	width: 40em;
 	margin: 5em auto;
 	text-align: center;
 	top: 50%;
+}
+
+.main-container{
+	width: 100%;
+	height: 100%;
+	padding: 2% 8%;
+	text-align: center;
+	max-height: 200em;
+}
+
+.col-lg,
+.col-lg-6{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	overflow: hidden;
+}
+
+.row{
+	height: 100%;
 }
 
 .container .title{
@@ -28,6 +55,7 @@ hr{
     border-radius: 10px;
     border: 1px solid #bbb;
 }
+
 .gbtn{
 	margin: 0.2em;
     padding: 0.8em 2.5em;
@@ -36,17 +64,61 @@ hr{
     border: 1px solid #bbb;
 }
 
+#map-list {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+    list-style: none;
+    padding: 0;
+}
+
+#map-item{
+    border: 1px solid #E1E1E1;
+    padding: 0.5em;
+    margin: 5px;
+    border-radius: 6px;
+}
+
+footer{
+    padding-top: 1.5em;
+}
+
+#maps {
+    border-left: 1px solid #E1E1E1
+}
+
+#map-form {
+    padding: 1em;
+}
+
 #create-game .btn,
 #join-game .btn{
 	padding: 0.5em 1.5em;
 	margin: 1em 0.2em 0 0.2em;
 }
 
-#create-game input,
 #join-game input{
 	width: 65%;
 	padding: 1em;
     border: 1px solid #bbb;
     border-radius: 5px;
     font-size: 1.3em;
+}
+input[type=radio]{
+    vertical-align: top;
+    margin-top: 3.2px;
+}
+
+.playerinfo{
+	border: 1px solid #bbb;
+}
+
+@media (max-width: 992px){
+	body{
+		overflow: scroll;
+	}
+	.col-lg,
+	.col-lg-6{
+		min-height: 33em;
+	}
 }
