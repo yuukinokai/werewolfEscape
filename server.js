@@ -1,18 +1,33 @@
 const express = require('express')
-const app = express()
+const app = module.exports = express()
 const bodyParser = require('body-parser');
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize('gamedb', null, null, {
+  dialect: 'sqlite',
+
+  // SQLite only
+  storage: './db.sqlite'
+});
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
+
+// Add routes
+require("./routes");
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function (req, res) {
-  res.render('index');
-})
 
-app.get('/game', function (req, res) {
-  res.render('game');
-})
 
 app.get('/create', function (req, res) {
   res.render('create');
