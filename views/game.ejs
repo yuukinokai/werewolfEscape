@@ -6,53 +6,59 @@
     <title>Werewolf Escape</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-			
 	<style>
-	table{
-		width: 100%;
-	}
-	td, th {
-		
-    	text-align: center;
-		vertical-align: top;
-    	padding: 8px;
-		width: 25%;
-		font-weight: normal;
-	}
-	</style>
+		.div1{
+			border: 1px solid #bbb;
+			height: 100%;
+			width: 100%;
+		}
+		.div2{
+			border: 1px solid #bbb;
+			height: 150%;
+			width: 100%;
+			margin-bottom: 1em;
+		}
+		.div3{
+			border: 1px solid #bbb;
+			height: 150%;
+			width: 100%;
+		}
+	</style>		
   </head>
   <body>
-		<div class="container">
-			<h3 class="title">Player [number]</h3>
-			<hr>
-			<p>You are a <strong>[role]</strong> </p>
-			<hr>
+		<div class="container" style ="width: 100%">
+			<div class="row">
+				<div class="col">
+					<h4 class="title">Player [number]</h4>
+					<p>You are a <strong>[role]</strong> </p>
+					<hr>
+					<p style="vertical-align: bottom">Chat</p>
+					<div class="div1">
+					</div>
+
+				</div>
+				<div class="col-6">
+					<h4 class="title">Map [number]</h4>
+					<hr>
+					<div class="div2">
+					</div>
+					<button type="button" class="gbtn btn-outline-secondary">Items</button>
+					<button type="button" class="gbtn btn-outline-secondary">Player History</button>
+					<button type="button" class="gbtn btn-outline-secondary">Deck</button>
+					
+					
+				</div>
+				<div class ="col">
+					<h4>Game History</h4>
+					<div class="div3">
+
+					</div>
+					
+				</div>
+			</div>
+			
 		</div>
 
-		<table>
-			<tr>
-				<th>
-					<h4>Chat</h4>
-				</th>
-				<th style = "width: 50%">
-					<h4>Map</h4>
-				</th>
-				<th>
-					<h4>Game Items</h4>
-					<button type="button" class="gbtn btn-outline-secondary">Cards</button><br>
-					<button type="button" class="gbtn btn-outline-secondary">Deck</button><br>
-					<button type="button" class="gbtn btn-outline-secondary">History</button><br>
-				</th>
-			</tr>
-		</table>
-
-		<div class="container">
-			<hr>
-			<h3>Game History</h3>
-			<hr>
-		</div>
-
-	</body>
 		
 		
 				
