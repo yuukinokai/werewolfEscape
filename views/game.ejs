@@ -9,35 +9,31 @@
 	<style>
 		.div1{
 			border: 1px solid #bbb;
-			height: 100%;
-			width: 100%;
+			margin-top: 1em;
 		}
 		.div2{
 			border: 1px solid #bbb;
-			height: 150%;
-			width: 100%;
 			margin-bottom: 1em;
 		}
 		.div3{
 			border: 1px solid #bbb;
-			height: 150%;
-			width: 100%;
+			height: 100%;
 		}
 	</style>		
   </head>
   <body>
-		<div class="container" style ="width: 100%">
+		<div class="main-container" style ="width: 100%">
 			<div class="row">
-				<div class="col">
-					<h4 class="title">Player [number]</h4>
-					<p>You are a <strong>[role]</strong> </p>
-					<hr>
-					<p style="vertical-align: bottom">Chat</p>
+				<div class="col-md">
+					<div class="playerinfo">
+						<h4 class="title">Player [number]</h4>
+						<p>You are a <strong>[role]</strong> </p>
+					</div>
 					<div class="div1">
 					</div>
 
 				</div>
-				<div class="col-6">
+				<div class="col-md-6">
 					<h4 class="title">Map [number]</h4>
 					<hr>
 					<div class="div2">
@@ -48,9 +44,10 @@
 					
 					
 				</div>
-				<div class ="col">
-					<h4>Game History</h4>
+				<div class ="col-md">
 					<div class="div3">
+					<br>
+					<h6>Game History</h6>
 
 					</div>
 					
