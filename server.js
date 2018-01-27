@@ -15,6 +15,10 @@ app.get('/game', function (req, res) {
   res.render('game');
 })
 
+app.get('/create', function (req, res) {
+  res.render('create');
+})
+
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
