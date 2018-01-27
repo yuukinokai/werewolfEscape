@@ -13,3 +13,7 @@ app.get('/2', function(req, res, next) {
 app.get('/game', function(req, res, next) {
   res.render('game');
 })
+
+app.get('/create', function(req, res, next) {
+  res.render('create');
+})
