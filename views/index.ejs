@@ -12,8 +12,27 @@
     <div class="container">
           <h1 class="title">Werewolf Escape</h1>
           <hr>
-          <button type="button" class="btn btn-outline-secondary">Create Game</button>
-          <button type="button" class="btn btn-outline-secondary">Join Game</button>
+          <form id="create-game">
+              <input type="text" id="player-name" name="playerName" placeholder="Enter your name">
+
+              <div class="button-container">
+                <button type="button" class="btn btn-outline-secondary">Create</button>
+                <button type="button" class="btn btn-outline-secondary">Back</button>
+              </div>
+          </form>
+          <form id="join-game">
+              <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder="Enter an access code">
+              <input style="margin-top: 1em" type="text" id="player-name" name="playerName" placeholder="Enter your name">
+
+              <div class="button-container">
+                <button type="button" class="btn btn-outline-secondary">Join</button>
+                <button type="button" class="btn btn-outline-secondary">Back</button>
+              </div>
+          </form>
+          <div id="game-btn">
+            <button type="button" class="btn btn-outline-secondary">Create Game</button>
+            <button type="button" class="btn btn-outline-secondary">Join Game</button>
+          </div>
           <hr>
     </div>
   </body>
