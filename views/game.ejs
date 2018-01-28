@@ -158,7 +158,7 @@
 					<div class="div-history">
 						<button type="button" class="gbtn btn-outline-secondary">Noise in Sector</button>
 						<button type="button" class="gbtn btn-outline-secondary" id="silence">Silence in all Sectors</button>
-						<button type="button" class="gbtn btn-outline-secondary">End Turn</button>
+						<button type="button" class="gbtn btn-outline-secondary" id="endturn">End Turn</button>
 						<hr>
 						<h6 >Game History</h6>
 						<div id="gameHistory">
@@ -204,8 +204,9 @@
 		                var data = response.data;
 		                var ul = document.getElementById("gameHistory");
 		                ul.innerHTML = ""
-		                if(data.names) {
-		                    for (var i = data.names.length - 1; i >= 0; i--) {
+		                if(data.actions) {
+		                    for (var i = data.actions.length - 1; i >= 0; i--) {
+		                    	console.log(data.actions[i].action);
 		                        addAction(data.actions[i].action);
 		                    }
 		                }
@@ -223,6 +224,11 @@
 		            p.appendChild(document.createTextNode(" "+name));
 		            history.appendChild(p);
 		        }
+
+		        var endturn = document.getElementById('endturn');
+		        endturn.addEventListener('click', function() {
+		        	axios.post('/action/endturn');
+		        })
 
 		
 			</script>
