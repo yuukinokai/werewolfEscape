@@ -40,8 +40,106 @@
 				</div>
 				<div class="col-lg-6">
 					<h4 class="title">Map [number]</h4>
+					<p id = "playerLocation" >Your Location : </p>
 					<hr>
 					<div class="div-map">
+						<br>
+						<br>
+							<div id = "row1" class="box-container">
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "A3">A3</div>
+									<div class="grass" id = "A4">A4</div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+								</div><div id = "row2" class="box-container">
+									<div class="no-block"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "B2">B2</div>
+									<div class="pod" id = "B3"><strong>1</strong></div>
+									<div class="grass" id = "B4">B4</div>
+									<div class="road" id = "B5">B5</div>
+									<div class="empty"></div>
+									<div class="no-block"></div>
+								</div><div id = "row3" class="box-container">
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "C3">C3</div>
+									<div class="grass" id = "C4">C4</div>
+									<div class="empty"></div>
+									<div class="grass" id = "C6">C6</div>
+									<div class="empty"></div>
+								</div><div id = "row4" class="box-container">
+									<div class="no-block"></div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="road" id = "D3">D3</div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "D6">D6</div>
+									<div class="no-block"></div>
+								</div><div id = "row5" class="box-container">
+									<div class="pod" id = "E1">3</div>
+									<div class="grass" id = "E2">E2</div>
+									<div class="road" id = "E3">E3</div>
+									<div class="grass" id = "E4">E4</div>
+									<div class="grass" id = "E5">E5</div>
+									<div class="empty"></div>
+									<div class="road"id = "E7">E7</div>
+								</div><div id = "row6" class="box-container">
+									<div class="no-block"></div>
+									<div class="grass" id = "F1">F1</div>
+									<div class="werewolf" id = "F2"></div>
+									<div class="grass" id = "F3">F3</div>
+									<div class="human" id = "F4"></div>
+									<div class="grass" id = "F5">F5</div>
+									<div class="road" id = "F6">F6</div>
+									<div class="no-block"></div>
+								</div><div id = "row7" class="box-container">
+									<div class="pod" id = "G1">4</div>
+									<div class="grass" id = "G2">G2</div>
+									<div class="road" id = "G3">G3</div>
+									<div class="grass" id = "G4">G4</div>
+									<div class="grass" id = "G5">G5</div>
+									<div class="empty"></div>
+									<div class="road" id = "G7">G7</div>
+								</div><div id = "row8" class="box-container">
+									<div class="no-block"></div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="road" id = "H3">H3</div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="grass"id = "H6">H6</div>
+									<div class="no-block"></div>
+								</div><div id = "row9" class="box-container">
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "I3">I3</div>
+									<div class="grass" id = "I4">I4</div>
+									<div class="empty"></div>
+									<div class="grass" id = "I6">I6</div>
+									<div class="empty"></div>
+								</div><div id = "row10" class="box-container">
+									<div class="no-block"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "J2">J2</div>
+									<div class="pod" id = "J3">2</div>
+									<div class="grass" id = "J4">J4</div>
+									<div class="road" id = "J5">J5</div>
+									<div class="empty"></div>
+									<div class="no-block"></div>
+								</div><div id = "row11" class="box-container">
+									<div class="empty"></div>
+									<div class="empty"></div>
+									<div class="grass" id = "K3">K3</div>
+									<div class="grass" id = "K4">K4</div>
+									<div class="empty" id = "K5"></div>
+									<div class="empty"></div>
+									<div class="empty"></div>
+								</div>
+								
 					</div>
 					<button type="button" class="gbtn btn-outline-secondary">Items</button>
 					<button type="button" class="gbtn btn-outline-secondary">Player History</button>
@@ -51,8 +149,11 @@
 				</div>
 				<div class ="col-lg">
 					<div class="div-history">
-					<br>
-					<h6>Game History</h6>
+					<button type="button" class="gbtn btn-outline-secondary">Noise in Sector</button>
+					<button type="button" class="gbtn btn-outline-secondary">Silence in all Sectors</button>
+					<button type="button" class="gbtn btn-outline-secondary">End Turn</button>
+					<hr>
+					<h6 id="gameHistory">Game History</h6>
 
 					</div>
 					
@@ -60,6 +161,29 @@
 			</div>
 			
 		</div>
+		<script>
+				var grass = document.getElementsByClassName("grass");
+				for (let i=0;i<grass.length; i++) {
+					grass[i].addEventListener("click", function(){
+						alert("Dangerous Area"  +  "\nYou are in the sector " + grass[i].getAttribute("id"))
+					});
+				};
+				var road = document.getElementsByClassName("road");
+				for (let i=0;i<road.length; i++) {
+					road[i].addEventListener("click", function(){
+						alert("Safe Area" +  "\nYou are in the sector " + road[i].getAttribute("id"))
+					});
+				};
+				var pod = document.getElementsByClassName("pod");
+				for (let i=0;i<pod.length; i++) {
+					pod[i].addEventListener("click", function(){
+						alert("Arrived at Building" +  "\nYou are in the sector " + pod[i].getAttribute("id"))
+					});
+				};
+		
+		
+			</script>
+  </body>
 
 		
 		
