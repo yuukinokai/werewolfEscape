@@ -106,19 +106,19 @@
 		var grass = document.getElementsByClassName("grass");
 		for (let i=0;i<grass.length; i++) {
 			grass[i].addEventListener("click", function(){
-				alert("Dangerous Area")
+				alert("Dangerous Area"  +  "\nYou are in the sector " + grass[i].getAttribute("id"))
 			});
 		};
 		var road = document.getElementsByClassName("road");
 		for (let i=0;i<road.length; i++) {
 			road[i].addEventListener("click", function(){
-				alert("Safe Area")
+				alert("Safe Area" +  "\nYou are in the sector " + road[i].getAttribute("id"))
 			});
 		};
 		var pod = document.getElementsByClassName("pod");
 		for (let i=0;i<pod.length; i++) {
 			pod[i].addEventListener("click", function(){
-				alert("Arrived at Building")
+				alert("Arrived at Building" +  "\nYou are in the sector " + pod[i].getAttribute("id"))
 			});
 		};
 
