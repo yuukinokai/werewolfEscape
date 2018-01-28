@@ -4,6 +4,8 @@ var GameController = require('../controllers/GameController.js');
 
 app.post('/create', GameController.createGame);
 
+app.get('/create', GameController.createGame2);
+
 /* GET home page. */
 app.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -29,6 +31,10 @@ app.get('/map-3', function(req, res, next) {
   res.render('map-3');
 });
 
-app.get('/create', function(req, res, next) {
-  res.render('create');
-});
+
+
+app.post('/join', GameController.joinGame);
+
+app.get('/start-game', GameController.startGame);
+
+app.get('/get-players', GameController.getPlayers);
