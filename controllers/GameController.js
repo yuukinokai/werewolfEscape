@@ -111,7 +111,7 @@ exports.joinGame = function(req, res) {
 							index: playerCount,
 						})
 							.then(function(usersession) {
-								res.redirect('create-game');
+								res.redirect('create');
 							})
 
 					});

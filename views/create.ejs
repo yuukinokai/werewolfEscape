@@ -25,7 +25,7 @@
                 <div class="col-6" id="players">
                     <h2>Players</h2>
                     <form action ="" id="map-form">
-                        <ul id="dynamic-list"></ul>
+                        <p id="dynamic-list"></p>
                     </form>
                     <button type="button" class="btn btn-outline-secondary" id="kickBtn">Kick</button>
                 </div>
@@ -34,8 +34,8 @@
                     <h2>Maps</h2>
                     <form action ="" id="map-form">
                         <ul id="map-list">
-                            <li id="map-item"><input type="radio" name="map" value="1"> Map 1<br></li>
-                            <li id="map-item"><input type="radio" name="map" value="2"> Map 2<br></li>
+                            <li id="map-item"><label><input type="radio" name="map" value="1"> Map 1</label><br></li>
+                            <li id="map-item"><label><input type="radio" name="map" value="2"> Map 2<br></label></li>
                         </ul>
                     </form>
                     <button type="button" class="btn btn-outline-secondary" id="playBtn">Play</button>
@@ -44,34 +44,45 @@
             <hr>
 
         </div>
-
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-        // Make a request for all users
-        var userNames = [];
 
-        axios.get('/get-players')
-        .then(function (response) {
-            userNames.push(response);
-            addItem();
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        setInterval(() => {
 
-        function getUsers() {
-            return axios.get('/get-players');
-        }
+            axios.get('/get-players', {params: {
+                game_id: '<%= game_id %>',
+            }})
+            .then(function (response) {
+                console.log(response);
+                var data = response.data;
+                var ul = document.getElementById("dynamic-list");
+                console.log(ul);
+                ul.innerHTML = ""
+                if(data.names) {
+                    for (var i = data.names.length - 1; i >= 0; i--) {
+                        addItem(data.names[i].name);
+                    }
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
-        function addItem(){
+        }, 3000);
+
+
+        function addItem(name){
             var ul = document.getElementById("dynamic-list");
             var li = document.createElement("li");
-            var user = userNames.pop();
+            var label = document.createElement("label");
             var radio = document.createElement("input");
             li.setAttribute('id', "map-item");
+            li.appendChild(label);
             radio.setAttribute("type","radio");
             radio.setAttribute("name","map");
-            li.appendChild(radio);
-            li.appendChild(document.createTextNode(user));
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(" "+name));
             ul.appendChild(li);
         }
     </script>

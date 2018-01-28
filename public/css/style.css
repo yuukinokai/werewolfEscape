@@ -81,6 +81,10 @@ hr{
     list-style-type: none;
 }
 
+#map-item > label{
+    margin-bottom: 0;
+}
+
 footer{
     padding-top: 1.5em;
 }
