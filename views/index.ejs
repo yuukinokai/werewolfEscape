@@ -12,28 +12,49 @@
     <div class="container">
           <h1 class="title">Werewolf Escape</h1>
           <hr>
-          <form id="create-game" method="POST" action="/create">
+          <form id="create-game" method="POST" action="/create" class="hidden">
               <input type="text" id="player-name" name="playerName" placeholder="Enter your name">
 
               <div class="button-container">
-                <button type="input" class="btn btn-outline-secondary">Create</button>
-                <button type="button" class="btn btn-outline-secondary">Back</button>
+                <button id="createbtn" type="input" class="btn btn-outline-secondary">Create</button>
+                <button id="back1btn" type="button" class="btn btn-outline-secondary">Back</button>
               </div>
           </form>
-          <form id="join-game">
+          <form id="join-game" class="hidden">
               <input autocorrect="off" autocapitalize="off" type="text" id="access-code" name="accessCode" placeholder="Enter an access code">
               <input style="margin-top: 1em" type="text" id="player-name" name="playerName" placeholder="Enter your name">
 
               <div class="button-container">
-                <button type="button" class="btn btn-outline-secondary">Join</button>
-                <button type="button" class="btn btn-outline-secondary">Back</button>
+                <button id="joinbtn" type="button" class="btn btn-outline-secondary">Join</button>
+                <button id="back2btn" type="button" class="btn btn-outline-secondary">Back</button>
               </div>
           </form>
           <div id="game-btn">
-            <button type="button" class="btn btn-outline-secondary">Create Game</button>
-            <button type="button" class="btn btn-outline-secondary">Join Game</button>
+            <button id="creategame" type="button" class="btn btn-outline-secondary">Create Game</button>
+            <button id="joingame" type="button" class="btn btn-outline-secondary">Join Game</button>
           </div>
-          <hr>
+        <hr>
     </div>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("#creategame").click(function(){
+      $("#create-game").toggleClass("hidden");
+      $("#game-btn").toggleClass("hidden");
+    });
+    $("#joingame").click(function(){
+      $("#join-game").toggleClass("hidden");
+      $("#game-btn").toggleClass("hidden");
+    });
+    $("#back1btn").click(function(){
+      $("#create-game").toggleClass("hidden");
+      $("#game-btn").toggleClass("hidden");
+    });
+    $("#back2btn").click(function(){
+      $("#join-game").toggleClass("hidden");
+      $("#game-btn").toggleClass("hidden");
+    });
+  });
+  </script>
 </html>

@@ -263,3 +263,7 @@ ul#dynamic-list li{
 #kickBtn, #playBtn{
     bottom: 0;
 }
+
+.hidden{
+    display: none !important;
+}
