@@ -6,7 +6,8 @@ var CardHistory = exports.CardHistory = require('./cardhistory.js')
 
 
 MoveHistory.belongsTo(GameSession);
-MoveHistory.belongsTo(UserSession, {through: 'GameSession'})
+MoveHistory.belongsTo(UserSession);
+UserSession.hasMany(MoveHistory);
 UserSession.belongsTo(GameSession);
 ActionHistory.belongsTo(GameSession);
 ActionHistory.belongsTo(UserSession, {through: 'GameSession'});

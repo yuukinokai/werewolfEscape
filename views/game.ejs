@@ -26,11 +26,18 @@
 			<div class="row">
 				<div class="col-lg">
 					<div>
-						<h4 class="title">Player [number]</h4>
+						<h4 class="title">Player <%= user.index %></h4>
 						<br>
-						<p>You are a <strong>[role]</strong> </p>
-						<p>Game room number <strong>[number]</strong> </p>
-						<p>Turn number<strong>[turn]</strong> </p>
+						<p>You are a <strong>
+							<% if (user.type == 0) { %>
+								Human
+							<% } else if(user.type == 1) { %>
+								Werewolf
+							<% } else { %>
+								Dead
+							<% } %>
+						</strong> </p>
+						<!-- <p>Turn number<strong>[turn]</strong> </p> -->
 					</div>
 					<div class="div-chat">
 					<br>
@@ -149,18 +156,20 @@
 				</div>
 				<div class ="col-lg">
 					<div class="div-history">
-					<button type="button" class="gbtn btn-outline-secondary">Noise in Sector</button>
-					<button type="button" class="gbtn btn-outline-secondary">Silence in all Sectors</button>
-					<button type="button" class="gbtn btn-outline-secondary">End Turn</button>
-					<hr>
-					<h6 id="gameHistory">Game History</h6>
-
+						<button type="button" class="gbtn btn-outline-secondary">Noise in Sector</button>
+						<button type="button" class="gbtn btn-outline-secondary" id="silence">Silence in all Sectors</button>
+						<button type="button" class="gbtn btn-outline-secondary">End Turn</button>
+						<hr>
+						<h6 >Game History</h6>
+						<div id="gameHistory">
+						</div>
 					</div>
 					
 				</div>
 			</div>
 			
 		</div>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script>
 				var grass = document.getElementsByClassName("grass");
 				for (let i=0;i<grass.length; i++) {
@@ -180,7 +189,41 @@
 						alert("Arrived at Building" +  "\nYou are in the sector " + pod[i].getAttribute("id"))
 					});
 				};
+
+				var silence = document.getElementById("silence");
+				silence.addEventListener("click", function() {
+					axios.post('/action/silence', {}, function() {
+
+					})
+				});
 		
+		        setInterval(() => {
+
+		            axios.get('/get-actions')
+		            .then(function (response) {
+		                var data = response.data;
+		                var ul = document.getElementById("gameHistory");
+		                ul.innerHTML = ""
+		                if(data.names) {
+		                    for (var i = data.names.length - 1; i >= 0; i--) {
+		                        addAction(data.actions[i].action);
+		                    }
+		                }
+		            })
+		            .catch(function (error) {
+		                console.log(error);
+		            });
+
+		        }, 1000);
+		        function addAction(name){
+		            var history = document.getElementById("gameHistory");
+
+		            var p = document.createElement("p");
+
+		            p.appendChild(document.createTextNode(" "+name));
+		            history.appendChild(p);
+		        }
+
 		
 			</script>
   </body>

@@ -72,7 +72,7 @@ exports.getPlayers = function(req, res) {
 
 exports.getGameStatus = function(req, res) {
 	if (!req.session.usertoken || req.session.usertoken.length == 0) {
-		return;
+		return res.sendStatus(400);
 	}
 
 	UserSession.findOne({where: {usertoken: req.session.usertoken}}).then(
@@ -84,6 +84,17 @@ exports.getGameStatus = function(req, res) {
 		}
 	);
 
+}
+
+exports.getGame = function(req, res) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0) {
+		return res.sendStatus(400);
+	}
+
+	UserSession.findOne({where : {usertoken: req.session.usertoken}})
+		.then(function(usersession) {
+			res.render('game', {user: usersession});
+		})
 }
 
 exports.joinGame = function(req, res) {
@@ -111,6 +122,7 @@ exports.joinGame = function(req, res) {
 							index: playerCount,
 						})
 							.then(function(usersession) {
+								req.session.usertoken = usertoken;
 								res.redirect('create');
 							})
 

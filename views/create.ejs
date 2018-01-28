@@ -54,10 +54,8 @@
                 game_id: '<%= game_id %>',
             }})
             .then(function (response) {
-                console.log(response);
                 var data = response.data;
                 var ul = document.getElementById("dynamic-list");
-                console.log(ul);
                 ul.innerHTML = ""
                 if(data.names) {
                     for (var i = data.names.length - 1; i >= 0; i--) {
@@ -71,6 +69,22 @@
 
         }, 3000);
 
+
+        setInterval(() => {
+
+            axios.get('/get-status')
+            .then(function (response) {
+                var data = response.data;
+                console.log(data);
+                if (data.game_status == 1) {
+                    location.replace('/game');
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        }, 3000);
 
         function addItem(name){
             var ul = document.getElementById("dynamic-list");
