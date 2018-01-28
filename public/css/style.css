@@ -122,3 +122,48 @@ input[type=radio]{
 		min-height: 33em;
 	}
 }
+
+.box-container{
+    /* border: 1px solid #bbb; */
+    width: 2em;
+    display: inline-block;
+    border: 1px solid #555
+}
+.road{
+    border: 1px solid white;
+    width: 2em;
+    height: 2em;
+    background-color:#bbb;
+}
+.grass{
+    border: 1px solid white;
+    width: 2em;
+    height: 2em;
+    background-color: rgb(81, 175, 105);
+}
+.pod{
+    border: 1px solid white;
+    width: 2em;
+    height: 2em;
+    background-color: orange;
+}
+.human{
+    border: 1px solid white;
+    width: 2em;
+    height: 2em;
+    background-color: blue;
+}
+.werewolf{
+    border: 1px solid white;
+    width: 2em;
+    height: 2em;
+    background-color: red;
+}
+.empty{
+    width: 2em;
+    height: 2em;
+}
+.no-block{
+    width: 2em;
+    height: 1em;
+}
