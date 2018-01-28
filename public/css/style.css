@@ -124,10 +124,9 @@ input[type=radio]{
 }
 
 .box-container{
-    /* border: 1px solid #bbb; */
     width: 2em;
     display: inline-block;
-    border: 1px solid #555
+    /* border: 1px solid #555 */
 }
 .road{
     border: 1px solid white;
