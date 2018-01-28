@@ -6,53 +6,61 @@
     <title>Werewolf Escape</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-			
 	<style>
-	table{
-		width: 100%;
-	}
-	td, th {
-		
-    	text-align: center;
-		vertical-align: top;
-    	padding: 8px;
-		width: 25%;
-		font-weight: normal;
-	}
-	</style>
+		.div-chat{
+			margin-top: 1em;
+		}
+		.div-map{
+			border: 1px solid #bbb;
+			margin-bottom: 1em;
+			height: 65%;
+		}
+		.div-history{
+			/* border: 1px solid #bbb; */
+			height: 100%;
+		}
+	</style>		
   </head>
   <body>
-		<div class="container">
-			<h3 class="title">Player [number]</h3>
-			<hr>
-			<p>You are a <strong>[role]</strong> </p>
-			<hr>
+		<div class="main-container" style ="width: 100%">
+			<div class="row">
+				<div class="col-lg">
+					<div>
+						<h4 class="title">Player [number]</h4>
+						<br>
+						<p>You are a <strong>[role]</strong> </p>
+						<p>Game room number <strong>[number]</strong> </p>
+						<p>Turn number<strong>[turn]</strong> </p>
+					</div>
+					<div class="div-chat">
+					<br>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum ultricies enim. Cras at pulvinar enim. Suspendisse lacinia semper tristique. Etiam tincidunt nunc non rutrum pretium. Mauris pulvinar mi nec dolor scelerisque blandit. Proin sit amet consectetur est, vel semper justo. Vestibulum sit amet nisl scelerisque orci condimentum faucibus.</p>
+					</div>
+
+				</div>
+				<div class="col-lg-6">
+					<h4 class="title">Map [number]</h4>
+					<hr>
+					<div class="div-map">
+					</div>
+					<button type="button" class="gbtn btn-outline-secondary">Items</button>
+					<button type="button" class="gbtn btn-outline-secondary">Player History</button>
+					<button type="button" class="gbtn btn-outline-secondary">Deck</button>
+					
+					
+				</div>
+				<div class ="col-lg">
+					<div class="div-history">
+					<br>
+					<h6>Game History</h6>
+
+					</div>
+					
+				</div>
+			</div>
+			
 		</div>
 
-		<table>
-			<tr>
-				<th>
-					<h4>Chat</h4>
-				</th>
-				<th style = "width: 50%">
-					<h4>Map</h4>
-				</th>
-				<th>
-					<h4>Game Items</h4>
-					<button type="button" class="gbtn btn-outline-secondary">Cards</button><br>
-					<button type="button" class="gbtn btn-outline-secondary">Deck</button><br>
-					<button type="button" class="gbtn btn-outline-secondary">History</button><br>
-				</th>
-			</tr>
-		</table>
-
-		<div class="container">
-			<hr>
-			<h3>Game History</h3>
-			<hr>
-		</div>
-
-	</body>
 		
 		
 				
