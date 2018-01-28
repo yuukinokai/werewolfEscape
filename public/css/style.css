@@ -170,6 +170,7 @@ input[type=radio]{
     line-height: 35px;
     float: left;
     margin-left: 8.66px;
+    cursor: pointer;
 }
 
 .road:before, .pod:before, .grass:before, .human:before, .werewolf:before, 
