@@ -30,7 +30,6 @@ app.get('/map-3', function(req, res, next) {
 });
 
 
-
 app.post('/join', GameController.joinGame);
 
 app.get('/start-game', GameController.startGame);

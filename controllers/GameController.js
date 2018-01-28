@@ -159,10 +159,11 @@ exports.startGame = function(req, res) {
 							for (var i =0; i< werewolfCount; i++) {
 								roles.push(1);
 							}
+
 							var promises = [];
 							for (var i=0; i<playerCount; i++) {
 								promises.push(usersessions[i].update({
-									type: roles[Math.floor(Math.random() * roles.length)]
+									type: roles.pop(Math.floor(Math.random() * roles.length))
 								}));
 							}
 

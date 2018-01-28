@@ -33,7 +33,7 @@ exports.attack = function(req, res) {
 			user.getGameSession()
 				.then(function(gamesession) {
 					gamesession.createActionHistory({
-						action: "Player " + user.index + " (" + user.name + "): " + "Attack" + req.body.move,
+						action: "Player " + user.index + " (" + user.name + "): " + "Attack " + req.body.move,
 					})
 						.then(function(actionhistory) {
 							return res.sendStatus(200);
@@ -54,7 +54,7 @@ exports.move = function(req, res) {
 			user.getGameSession()
 				.then(function(gamesession) {
 					gamesession.createActionHistory({
-						action: "Player " + user.index + " (" + user.name + "): " + "Move to" + req.body.move,
+						action: "Player " + user.index + " (" + user.name + "): " + "Move to " + req.body.move,
 					})
 						.then(function(actionhistory) {
 							return res.sendStatus(200);
