@@ -46,4 +46,5 @@ app.post('/action/move', ActionHistoryController.move);
 app.post('/action/silence', ActionHistoryController.silence);
 app.post('/action/startgame', ActionHistoryController.startgame);
 app.post('/action/endturn', ActionHistoryController.endturn);
+app.post('/action/noise', ActionHistoryController.noise);
 app.get('/get-actions', ActionHistoryController.getActions);

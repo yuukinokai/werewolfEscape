@@ -128,6 +128,27 @@ exports.endturn = function(req, res) {
 
 }
 
+exports.noise = function(req, res) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
+		return res.sendStatus(400);
+	}
+
+	UserSession.findOne({where: {usertoken: req.session.usertoken}}).then(
+		function(user) {
+			user.getGameSession()
+				.then(function(gamesession) {
+					gamesession.createActionHistory({
+						action: "Player " + user.index + " (" + user.name + "): " + "Noise in sector",
+					})
+						.then(function(actionhistory) {
+							return res.sendStatus(200);
+						})
+				});
+		}
+	);
+
+}
+
 exports.getActions = function(req, res){
 	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
 		return res.sendStatus(400);
