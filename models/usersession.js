@@ -7,6 +7,7 @@ var MoveHistory = require('./movehistory.js')
 
 var UserSession = sequelize.define('GameSession', {
   usertoken: Sequelize.STRING,
+  name: Sequelize.STRING,
   type: Sequelize.TINYINT,
   index: Sequelize.TINYINT,
 });
