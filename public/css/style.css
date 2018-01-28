@@ -2,6 +2,7 @@ html{
 	width: 100%;
 	height: 100%;
 }
+
 body {
 	background-color: white;
 	color: #555;
@@ -125,57 +126,121 @@ input[type=radio]{
 }
 
 .box-container{
-    width: 2em;
+    width: 3em;
     display: inline-block;
-    margin-top: 0;
+    margin-right: -13px;
+    padding: 3px;
 }
+
+.empty{
+    position: relative;
+    height: 35px; 
+    width: 21.21px;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+    float: left;
+    margin-left: 8.66px;
+}
+
+.no-block{
+    position: relative;
+    height: 17.5px; 
+    width: 21.21px;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+    float: left;
+    margin-left: 8.66px;
+}
+
+.road, .pod, .grass, .human, .werewolf {
+    position: relative;
+    height: 35px; 
+    width: 23px;
+    border-top:1px solid white;
+    border-bottom: 1px solid white;
+    text-align: center;
+    line-height: 35px;
+    float: left;
+    margin-left: 8.66px;
+}
+
+.road:before, .pod:before, .grass:before, .human:before, .werewolf:before, 
+.road:after, .pod:after, .grass:after, .human:after, .werewolf:after {
+    content: "";
+    float: left;
+    position: absolute;
+    width: 0;
+    border-top: 16.5px solid transparent;
+    border-bottom: 16.5px solid transparent;
+}
+  
 .road{
-    border: 1px solid white;
-    width: 2em;
-    height: 2em;
     background-color:#bbb;
-    display: table;
-    text-align: center;
-    padding-top: 3px;
+}  
+
+.road:before{
+    border-right: 10.10px solid #bbb
 }
+
+.road:after{
+    border-left: 10.10px solid #bbb
+}
+
 .grass{
-    border: 1px solid white;
-    font-size: 1em;
-    width: 2em;
-    height: 2em;
     background-color: rgb(81, 175, 105);
-    display: table;
-    text-align: center;
-    padding-top: 3px;
 }
+
+.grass:before{
+    border-right: 10.10px solid rgb(81, 175, 105);
+}
+
+.grass:after{
+    border-left: 10.10px solid rgb(81, 175, 105);
+}
+
 .pod{
-    border: 1px solid white;
-    width: 2em;
-    height: 2em;
     background-color: orange;
-    display: table;
-    text-align: center;
-    padding-top: 3px;
-    font-weight: bold;
     color: white;
 }
+
+.pod:before{
+    border-right: 10.10px solid orange;
+}
+
+.pod:after{
+    border-left: 10.10px solid orange;
+}
+
 .human{
-    border: 1px solid white;
-    width: 2em;
-    height: 2em;
     background-color: blue;
 }
+
+.human:before{
+    border-right: 10.10px solid blue;
+}
+
+.human:after{
+    border-left: 10.10px solid blue;
+}
+
 .werewolf{
-    border: 1px solid white;
-    width: 2em;
-    height: 2em;
     background-color: red;
 }
-.empty{
-    width: 2em;
-    height: 2em;
+
+.werewolf:after{
+    border-left: 10.10px solid red;
 }
-.no-block{
-    width: 2em;
-    height: 1em;
+
+.werewolf:before{
+    border-right: 10.10px solid red;
+}
+
+.road:before, .pod:before, .grass:before, .human:before, .werewolf:before  {
+    right: 100%;
+}
+  
+.road:after, .pod:after, .grass:after, .human:after, .werewolf:after  {
+    left: 100%;
 }
