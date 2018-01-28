@@ -26,6 +26,7 @@ app.use(express.static('public'));
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 app.use(cookieSession({
   name: 'session',
   keys: ['TOTALLY', 'NOT', 'SECRET'],

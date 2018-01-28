@@ -66,7 +66,7 @@ exports.move = function(req, res) {
 }
 
 exports.silence = function(req, res) {
-	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0) {
 		return res.sendStatus(400);
 	}
 
@@ -87,7 +87,7 @@ exports.silence = function(req, res) {
 }
 
 exports.startgame = function(req, res) {
-	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0) {
 		return res.sendStatus(400);
 	}
 
@@ -108,7 +108,7 @@ exports.startgame = function(req, res) {
 }
 
 exports.endturn = function(req, res) {
-	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0) {
 		return res.sendStatus(400);
 	}
 
@@ -129,7 +129,7 @@ exports.endturn = function(req, res) {
 }
 
 exports.noise = function(req, res) {
-	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0 ) {
 		return res.sendStatus(400);
 	}
 
@@ -150,7 +150,7 @@ exports.noise = function(req, res) {
 }
 
 exports.getActions = function(req, res){
-	if (!req.session.usertoken || req.session.usertoken.length == 0 || !req.body) {
+	if (!req.session.usertoken || req.session.usertoken.length == 0) {
 		return res.sendStatus(400);
 	}
 
