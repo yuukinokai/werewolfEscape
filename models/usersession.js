@@ -5,7 +5,7 @@ var ActionHistory = require('./actionhistory.js')
 var MoveHistory = require('./movehistory.js')
 
 
-var UserSession = sequelize.define('GameSession', {
+var UserSession = sequelize.define('UserSession', {
   usertoken: Sequelize.STRING,
   name: Sequelize.STRING,
   type: Sequelize.TINYINT,

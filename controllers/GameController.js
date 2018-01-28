@@ -10,7 +10,6 @@ var randomString = function(length) {
     return text;
 }
 
-
 exports.createGame = function(req, res) {
 	if (!req.body) return res.sendStatus(400);
 	if (req.body.playerName.length != 0) {
@@ -20,21 +19,44 @@ exports.createGame = function(req, res) {
 			game_status: 0,
 		})
 			.then(function(gamesession) {
+				var usertoken = randomString(12);
+				gamesession.createUserSession({
+					name: req.body.playerName,
+					type: 0,
+					index: 0,
+					usertoken: usertoken,
+				})
+					.then(function(usersession) {
+						req.session.usertoken = usertoken;
+						res.render('create');
+					});
+			});
+	}
+}
+
+exports.startGame = function(req, res) {
+	if (!req.body) return res.sendStatus(400);
+	if (req.body.playerName.length != 0) {
+		GameSession.create({
+			name: "New Game",
+			game_id: randomString(8),
+			game_status: 0,
+		})
+			.then(function(gamesession) {
+
+				var usertoken = randomString(12);
 				gamesession.createUserSession({
 					name: res.body.playerName,
 					type: 0,
 					index: 0,
-					usertoken: randomString(12),
+					usertoken: usertoken,
 				})
 					.then(function(usersession) {
-						
+						req.session.usertoken = usertoken;
 						
 					});
-
 			});
 	}
-
-
-
 }
+
 
