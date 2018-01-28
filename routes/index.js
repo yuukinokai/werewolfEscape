@@ -1,5 +1,8 @@
 var express = require('express');
 var app = require('../server.js');
+var GameController = require('../controllers/GameController.js');
+
+app.post('/create', GameController.createGame);
 
 /* GET home page. */
 app.get('/', function(req, res, next) {
