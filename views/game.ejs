@@ -156,7 +156,7 @@
 				</div>
 				<div class ="col-lg">
 					<div class="div-history">
-						<button type="button" class="gbtn btn-outline-secondary">Noise in Sector</button>
+						<button type="button" class="gbtn btn-outline-secondary" id="noise">Noise in Sector</button>
 						<button type="button" class="gbtn btn-outline-secondary" id="silence">Silence in all Sectors</button>
 						<button type="button" class="gbtn btn-outline-secondary" id="endturn">End Turn</button>
 						<hr>
@@ -228,6 +228,11 @@
 		        var endturn = document.getElementById('endturn');
 		        endturn.addEventListener('click', function() {
 		        	axios.post('/action/endturn');
+		        })
+
+				var noise = document.getElementById('noise');
+		        noise.addEventListener('click', function() {
+		        	axios.post('/action/noise');
 		        })
 
 		
