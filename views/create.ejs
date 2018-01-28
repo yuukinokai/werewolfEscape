@@ -7,6 +7,7 @@
             <meta charset="utf-8">
             <title>Create Game</title>
             <link rel="stylesheet" type="text/css" href="/css/style.css">
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     </head>
 
@@ -23,6 +24,10 @@
             <div class="row" id="content">
                 <div class="col-6" id="players">
                     <h2>Players</h2>
+                    <form action ="" id="map-form">
+                        <ul id="dynamic-list"></ul>
+                    </form>
+                    <button type="button" class="btn btn-outline-secondary" id="kickBtn">Kick</button>
                 </div>
 
                 <div class="col-6" id="maps">
@@ -33,11 +38,43 @@
                             <li id="map-item"><input type="radio" name="map" value="2"> Map 2<br></li>
                         </ul>
                     </form>
-                    <button type="button" class="btn btn-outline-secondary">Play</button>
+                    <button type="button" class="btn btn-outline-secondary" id="playBtn">Play</button>
                 </div>
             </div>
             <hr>
 
         </div>
+
+    <script>
+        // Make a request for all users
+        var userNames = [];
+
+        axios.get('/get-players')
+        .then(function (response) {
+            userNames.push(response);
+            addItem();
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+        function getUsers() {
+            return axios.get('/get-players');
+        }
+
+        function addItem(){
+            var ul = document.getElementById("dynamic-list");
+            var li = document.createElement("li");
+            var user = userNames.pop();
+            var radio = document.createElement("input");
+            li.setAttribute('id', "map-item");
+            radio.setAttribute("type","radio");
+            radio.setAttribute("name","map");
+            li.appendChild(radio);
+            li.appendChild(document.createTextNode(user));
+            ul.appendChild(li);
+        }
+    </script>
     </body>
+
 </html>

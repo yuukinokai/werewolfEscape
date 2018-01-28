@@ -65,7 +65,7 @@ hr{
     border: 1px solid #bbb;
 }
 
-#map-list {
+#map-list, #dynamic-list {
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
@@ -78,6 +78,7 @@ hr{
     padding: 0.5em;
     margin: 5px;
     border-radius: 6px;
+    list-style-type: none;
 }
 
 footer{
@@ -245,4 +246,20 @@ input[type=radio]{
   
 .road:after, .pod:after, .grass:after, .human:after, .werewolf:after  {
     left: 100%;
+}
+
+ul#dynamic-list input[type="radio"]{
+    margin-right: 0.3em;
+}
+
+ul#dynamic-list {
+    text-align: left;
+}
+
+ul#dynamic-list li{
+    padding-left: 1em;
+}
+
+#kickBtn, #playBtn{
+    bottom: 0;
 }
