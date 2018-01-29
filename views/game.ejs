@@ -27,7 +27,6 @@
 				<div class="col-lg">
 					<div>
 						<h4 class="title">Player <%= user.index %></h4>
-						<br>
 						<p>You are a <strong>
 							<% if (user.type == 0) { %>
 								Human
@@ -37,6 +36,7 @@
 								Dead
 							<% } %>
 						</strong> </p>
+						<hr>
 						<!-- <p>Turn number<strong>[turn]</strong> </p> -->
 					</div>
 					<div class="div-chat">
@@ -155,12 +155,12 @@
 					
 				</div>
 				<div class ="col-lg">
+					<button type="button" class="gbtn btn-outline-secondary" id="noise">Noise in Sector</button>
+					<button type="button" class="gbtn btn-outline-secondary" id="silence">Silence in all Sectors</button>
+					<button type="button" class="gbtn btn-outline-secondary" id="attack">Attack</button>
+					<button type="button" class="gbtn btn-outline-secondary" id="endturn">End Turn</button>
+					<hr>	
 					<div class="div-history">
-						<button type="button" class="gbtn btn-outline-secondary" id="noise">Noise in Sector</button>
-						<button type="button" class="gbtn btn-outline-secondary" id="silence">Silence in all Sectors</button>
-						<button type="button" class="gbtn btn-outline-secondary" id="attack">Attack</button>
-						<button type="button" class="gbtn btn-outline-secondary" id="endturn">End Turn</button>
-						<hr>
 						<h6 >Game History</h6>
 						<div id="gameHistory">
 						</div>
