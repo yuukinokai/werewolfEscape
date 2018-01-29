@@ -41,7 +41,7 @@
 					</div>
 					<div class="div-chat">
 					<br>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum ultricies enim. Cras at pulvinar enim. Suspendisse lacinia semper tristique. Etiam tincidunt nunc non rutrum pretium. Mauris pulvinar mi nec dolor scelerisque blandit. Proin sit amet consectetur est, vel semper justo. Vestibulum sit amet nisl scelerisque orci condimentum faucibus.</p>
+					
 					</div>
 
 				</div>
@@ -158,6 +158,7 @@
 					<div class="div-history">
 						<button type="button" class="gbtn btn-outline-secondary" id="noise">Noise in Sector</button>
 						<button type="button" class="gbtn btn-outline-secondary" id="silence">Silence in all Sectors</button>
+						<button type="button" class="gbtn btn-outline-secondary" id="attack">Attack</button>
 						<button type="button" class="gbtn btn-outline-secondary" id="endturn">End Turn</button>
 						<hr>
 						<h6 >Game History</h6>
@@ -174,18 +175,21 @@
 				var grass = document.getElementsByClassName("grass");
 				for (let i=0;i<grass.length; i++) {
 					grass[i].addEventListener("click", function(){
+						axios.post('/action/move');
 						alert("Dangerous Area"  +  "\nYou are in the sector " + grass[i].getAttribute("id"))
 					});
 				};
 				var road = document.getElementsByClassName("road");
 				for (let i=0;i<road.length; i++) {
 					road[i].addEventListener("click", function(){
+						axios.post('/action/silence');
 						alert("Safe Area" +  "\nYou are in the sector " + road[i].getAttribute("id"))
 					});
 				};
 				var pod = document.getElementsByClassName("pod");
 				for (let i=0;i<pod.length; i++) {
 					pod[i].addEventListener("click", function(){
+						axios.post('/action/move');
 						alert("Arrived at Building" +  "\nYou are in the sector " + pod[i].getAttribute("id"))
 					});
 				};
@@ -232,8 +236,14 @@
 
 				var noise = document.getElementById('noise');
 		        noise.addEventListener('click', function() {
-		        	axios.post('/action/noise');
-		        })
+					axios.post('/action/noise');
+				})
+
+				var noise = document.getElementById('attack');
+		        noise.addEventListener('click', function() {
+					axios.post('/action/attack');
+				})
+				
 
 		
 			</script>
